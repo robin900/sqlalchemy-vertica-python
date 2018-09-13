@@ -4,7 +4,6 @@ from sqlalchemy.dialects.postgresql.base import PGDialect
 from sqlalchemy.dialects.postgresql import INTERVAL
 from sqlalchemy.engine import reflection
 
-
 class VerticaDialect(PGDialect):
     """ Vertica Dialect using a vertica-python connection and PGDialect """
 
@@ -30,12 +29,13 @@ class VerticaDialect(PGDialect):
         'VARCHAR2': sqltypes.VARCHAR,
         'TEXT': sqltypes.VARCHAR,
 
-        'DATE': sqltypes.DATE,
-        'DATETIME': sqltypes.DATETIME,
-        'SMALLDATETIME': sqltypes.DATETIME,
-        'TIME': sqltypes.TIME,
-        'TIME': sqltypes.TIME(timezone=True),
-        'TIMESTAMP': sqltypes.TIMESTAMP,
+        'DATE': sqltypes.DATE(),
+        'DATETIME': sqltypes.DATETIME(),
+        'SMALLDATETIME': sqltypes.DATETIME(),
+        'TIME': sqltypes.TIME(),
+        'TIMETZ': sqltypes.TIME(timezone=True),
+        'TIME WITH TIMEZONE': sqltypes.TIME(timezone=True),
+        'TIMESTAMP': sqltypes.TIMESTAMP(),
         'TIMESTAMPTZ': sqltypes.TIMESTAMP(timezone=True),
         'TIMESTAMP WITH TIMEZONE': sqltypes.TIMESTAMP(timezone=True),
 
